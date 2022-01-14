@@ -11,7 +11,7 @@ class Node:
         self.data = data
         
         
-    def __repr___(self):
+    def __repr__(self):
         return "<Node data: %s>" % self.data
     
 class LinkedList:
@@ -47,6 +47,26 @@ class LinkedList:
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
+        
+    def search(self,key):
+        """
+        Search for the first node containing data that matches the key
+        Return the node or 'None' if not found
+        
+        Takes O(n) time
+        """
+
+   
+        current = self.head
+        
+        while current:
+            if current.data == key:
+                return current
+            else:
+                current = current.next_node
+        return None
+                
+        
     
     def __repr__(self):
         """
